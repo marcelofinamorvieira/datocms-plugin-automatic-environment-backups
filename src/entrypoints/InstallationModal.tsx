@@ -81,7 +81,7 @@ const InstallationModal = ({ ctx }: PropTypes) => {
           <p>
             To see how to enable this feature on your netlify project{" "}
             <a
-              href="https://github.com/marcelofinamorvieira/datocms-backups-scheduled-netlify-function"
+              href="https://github.com/marcelofinamorvieira/datocms-backups-scheduled-netlify-function#enabling-the-scheduled-function-feature-on-netlify"
               target="_blank"
               rel="noreferrer"
             >
