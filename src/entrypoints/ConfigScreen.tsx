@@ -1,18 +1,19 @@
-import { RenderConfigScreenCtx } from 'datocms-plugin-sdk';
-import { Canvas, ContextInspector } from 'datocms-react-ui';
-import s from './styles.module.css';
+import { RenderConfigScreenCtx } from "datocms-plugin-sdk";
+import { Button, Canvas } from "datocms-react-ui";
 
 type Props = {
   ctx: RenderConfigScreenCtx;
 };
 
 export default function ConfigScreen({ ctx }: Props) {
+  const openNetlifyPage = () => {
+    window.open(`https://app.netlify.com/`);
+  };
+
   return (
     <Canvas ctx={ctx}>
-      <p>Welcome to your plugin! This is your config screen!</p>
-      <div className={s.inspector}>
-        <ContextInspector />
-      </div>
+      <p>Weekly and daily backups have been successfully setup!</p>
+      <Button onClick={openNetlifyPage}>Manage my functions</Button>
     </Canvas>
   );
 }
