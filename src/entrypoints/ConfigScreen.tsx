@@ -1,5 +1,5 @@
 import { RenderConfigScreenCtx } from "datocms-plugin-sdk";
-import { Button, Canvas } from "datocms-react-ui";
+import { Button, Canvas, FieldGroup } from "datocms-react-ui";
 
 type Props = {
   ctx: RenderConfigScreenCtx;
@@ -16,9 +16,11 @@ export default function ConfigScreen({ ctx }: Props) {
 
   return (
     <Canvas ctx={ctx}>
-      <p>Weekly and daily backups have been successfully setup!</p>
-      <Button onClick={openNetlifyPage}>Manage my functions</Button>
-      <Button onClick={openBackupsPage}>Manage my backups</Button>
+      <h4>Weekly and daily backups have been successfully setup!</h4>
+      <FieldGroup>
+        <Button onClick={openNetlifyPage}>Manage my functions</Button>
+        <Button onClick={openBackupsPage}>Manage my backups</Button>
+      </FieldGroup>
     </Canvas>
   );
 }
