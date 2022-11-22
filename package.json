@@ -1,6 +1,6 @@
 {
   "name": "datocms-plugin-automatic-environment-backups",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": false,
   "homepage": "https://github.com/marcelofinamorvieira/datocms-plugin-automatic-environment-backups",
   "description": "A plugin that creates daily and weekly backups of your main environment on DatoCMS automatically.",
