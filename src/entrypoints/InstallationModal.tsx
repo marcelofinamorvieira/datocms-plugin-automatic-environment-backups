@@ -1,14 +1,14 @@
-import { RenderModalCtx } from "datocms-plugin-sdk";
-import { Button, Canvas, Form, TextField } from "datocms-react-ui";
-import { useState } from "react";
-import attemptNetlifyInitialization from "../utils/attemptNetlifyInitialization";
+import { RenderModalCtx } from 'datocms-plugin-sdk';
+import { Button, Canvas, Form, TextField } from 'datocms-react-ui';
+import { useState } from 'react';
+import attemptNetlifyInitialization from '../utils/attemptNetlifyInitialization';
 
 type PropTypes = {
   ctx: RenderModalCtx;
 };
 
 const InstallationModal = ({ ctx }: PropTypes) => {
-  const [netlifyURL, setNetlifyURL] = useState("");
+  const [netlifyURL, setNetlifyURL] = useState('');
   const [isInvalid, setIsInvalid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,8 +19,8 @@ const InstallationModal = ({ ctx }: PropTypes) => {
   };
 
   const handleCancelationButtonClick = () => {
-    ctx.updatePluginParameters({ installationState: "cancelled" });
-    ctx.resolve("cancelled");
+    ctx.updatePluginParameters({ installationState: 'cancelled' });
+    ctx.resolve('cancelled');
   };
 
   const handleFinishButtonClick = async () => {
@@ -28,10 +28,10 @@ const InstallationModal = ({ ctx }: PropTypes) => {
     try {
       await attemptNetlifyInitialization(netlifyURL);
       await ctx.updatePluginParameters({
-        installationState: "installed",
+        installationState: 'installed',
         netlifyURL: netlifyURL,
       });
-      ctx.resolve("installed");
+      await ctx.resolve('installed');
     } catch {
       setIsLoading(false);
       setIsInvalid(true);
@@ -40,7 +40,7 @@ const InstallationModal = ({ ctx }: PropTypes) => {
 
   return (
     <Canvas ctx={ctx}>
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: 'center' }}>
         <h1>Before continuing:</h1>
         <p>
           This plugin requires a scheduled function to manage the forking and
@@ -51,7 +51,7 @@ const InstallationModal = ({ ctx }: PropTypes) => {
         </p>
         <p>
           If you'd like, you also can see, clone, and read the documentation on
-          that scheduled function on{" "}
+          that scheduled function on{' '}
           <a
             href="https://github.com/marcelofinamorvieira/datocms-backups-scheduled-netlify-function"
             target="_blank"
@@ -79,7 +79,7 @@ const InstallationModal = ({ ctx }: PropTypes) => {
           </p>
 
           <p>
-            To see how to enable this feature on your netlify project{" "}
+            To see how to enable this feature on your netlify project{' '}
             <a
               href="https://github.com/marcelofinamorvieira/datocms-backups-scheduled-netlify-function#enabling-the-scheduled-function-feature-on-netlify"
               target="_blank"
@@ -95,7 +95,7 @@ const InstallationModal = ({ ctx }: PropTypes) => {
             label="Once deployed, insert your deployed URL"
             value={netlifyURL}
             placeholder="https://automated-backup.netlify.app"
-            error={isInvalid ? "Please insert a valid URL" : ""}
+            error={isInvalid ? 'Please insert a valid URL' : ''}
             onChange={(newValue) => {
               setIsInvalid(false);
               setNetlifyURL(newValue);
@@ -103,7 +103,7 @@ const InstallationModal = ({ ctx }: PropTypes) => {
           />
           <Button
             fullWidth
-            buttonType={isLoading ? "muted" : "primary"}
+            buttonType={isLoading ? 'muted' : 'primary'}
             disabled={isLoading}
             onClick={handleFinishButtonClick}
           >

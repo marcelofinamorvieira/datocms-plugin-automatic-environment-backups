@@ -12,7 +12,6 @@ export default function PreInstallConfig({ ctx }: Props) {
       id: "installationModal",
       title: "Automatic Backups setup",
       width: "m",
-      parameters: { foo: "bar" },
       closeDisabled: true,
     });
   };
